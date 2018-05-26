@@ -1,0 +1,76 @@
+
+body {
+  background-color: #3a3a3a
+}
+
+p, a, h1, h2, h3, h4, 
+.navbar-default 
+.navbar-brand, 
+.navbar-default .navbar-nav > li > a  {
+  color: aliceblue
+}
+
+.tvshow {
+  margin-bottom: 2em;
+}
+
+.tvshow img {
+  width: 110%;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: -2px;
+}
+
+.fontSizeMid {
+  font-size: 18px
+}
+
+.navbar-default{
+  background-color: #2E7D32;
+  border-color: #2E7D32
+}
+
+.navbartop {
+  margin-bottom: 4.5em;
+}
+
+.linkContainer a.active,
+a:hover {
+  text-decoration: underline;
+  color: aliceblue
+}
+
+.linkType {
+  font-size: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  padding-right: 1em;
+}
+
+.linkContainer {
+  margin-bottom: 1em
+}
+
+.pagerBtn {
+  margin-right: 0.5em
+}
+
+.tvShowDetails img {
+  padding: 1em;
+  border-radius: 1.2em
+} 
+
+.footer {
+  margin-top: 4em;  
+}
+
+.footer img{
+  max-width: 12em;
+}
+
+.not-found {
+  text-align: center;
+}
