@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css';
-import Watchlist from './containers/Watchlist';
+import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Watchlist />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

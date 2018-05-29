@@ -10,12 +10,23 @@ p, a, h1, h2, h3, h4,
   color: aliceblue
 }
 
-.tvshow {
+.mainView {
+  min-height: calc(100vh - 70px);
+}
+
+.bottomGap {
   margin-bottom: 2em;
 }
 
-.tvshow img {
-  width: 110%;
+.tvSeasons img {
+  width: 185px;
+  height: 280px;
+  margin-bottom: 2em;
+}
+
+.tvEpisode img {
+  width: 342px;
+  height: 192px;
 }
 
 .title {
@@ -58,13 +69,15 @@ a:hover {
   margin-right: 0.5em
 }
 
-.tvShowDetails img {
-  padding: 1em;
-  border-radius: 1.2em
+.details img {
+  margin: 1em;
+  border-radius: 0.2em;
+  width: 100%;
+  max-width: 342px;
 } 
 
 .footer {
-  margin-top: 4em;  
+  margin-top: 4em;
 }
 
 .footer img{

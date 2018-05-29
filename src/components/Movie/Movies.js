@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
 import { Row, Col, Button } from 'react-bootstrap';
 
 import MovieList from './MovieList';
@@ -67,7 +66,7 @@ class Movies extends React.Component {
 
     return (
       <div>
-        <MovieList results={data} />
+        <MovieList data={data} />
         <Row>
           <Col xs={12} md={6}>
             <p>Currently on page: {page}</p>

@@ -11,10 +11,11 @@ const shorten = (str, len, ellipsis = '...') => {
   return result + ellipsis;
 };
 
+
 const Movie = props => (
-  <Row className="tvshow">
+  <Row className="bottomGap">
     <Col xs={12} md={4}>
-      <img src={`https://image.tmdb.org/t/p/w185/${props.img}`} alt="logo" />
+      <img src={`https://image.tmdb.org/t/p/w185/${props.img}`} alt="Poster" />
     </Col>
 
     <Col xs={12} md={8}>

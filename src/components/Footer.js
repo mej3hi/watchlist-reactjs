@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import tmbpLogo from './../powered_by_the_movie_database_icon.png'
+import tmbpLogo from './../powered_by_the_movie_database_icon.png';
 
 const Footer = () => (
   <Row className="footer">

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, NavLink, Redirect, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import { Row, Col } from 'react-bootstrap';
 
 import Movies from './Movies';
@@ -48,7 +47,12 @@ const MovieNav = (props) => {
 };
 
 MovieNav.propTypes = {
-  match: PropTypes.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      url: PropTypes.string,
+      path: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 

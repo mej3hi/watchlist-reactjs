@@ -1,8 +1,11 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 
+import TvEpisodes from './TvEpisodes';
+import TvSeasons from './TvSeasons';
 import NotFound from '../NotFound';
 
 
@@ -11,12 +14,6 @@ class TvDetails extends React.Component {
     super(props);
     this.state = {
       tvDetails: {
-        backdrop_path: '',
-        name: '',
-        vote_average: '',
-        overview: '',
-        poster_path: '',
-        genres: [],
         seasons: [],
       },
       loading: true,
@@ -52,10 +49,8 @@ class TvDetails extends React.Component {
       });
   }
 
-
-
-
   render() {
+    const { id } = this.props.match.params;
     const { tvDetails } = this.state;
     if (this.state.loading) {
       return (<p>Loading</p>);
@@ -73,24 +68,40 @@ class TvDetails extends React.Component {
     };
 
     return (
-      <Row style={backgroundImage} className="tvShowDetails" >
-        <Col xs={12} md={12}>
-          <Row >
-            <Col xs={12} md={4}>
-              <img src={`https://image.tmdb.org/t/p/w342${tvDetails.poster_path}`} alt="poster" />
-            </Col>
-            <Col xs={12} md={8}>
-              <h1>{tvDetails.name}</h1>
-              <h3>Relesed: {tvDetails.first_air_date}</h3>
-              <h3>Rating: {tvDetails.vote_average}</h3>
-              <h3>Overview</h3>
-              <h4>{tvDetails.overview}</h4>
-              <h3>Seasons</h3>
-
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <div>
+        <Row style={backgroundImage} className="details" >
+          <Col xs={12} md={12}>
+            <Row >
+              <Col xs={12} md={4}>
+                <img src={`https://image.tmdb.org/t/p/w342${tvDetails.poster_path}`} alt="Poster" />
+              </Col>
+              <Col xs={12} md={8}>
+                <h1>{tvDetails.name}</h1>
+                <h3>Relesed: {tvDetails.first_air_date}</h3>
+                <h3>Rating: {tvDetails.vote_average}</h3>
+                <h3>Overview</h3>
+                <h4>{tvDetails.overview}</h4>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={12}>
+            <Switch>
+              <Route
+                exact
+                path={this.props.match.path}
+                render={() => (<TvSeasons data={tvDetails.seasons} tvId={id} />)}
+              />
+              <Route
+                exact
+                path={`${this.props.match.path}/season/:seasonNum`}
+                component={TvEpisodes}
+              />
+            </Switch>
+          </Col>
+        </Row>
+      </div>
 
     );
   }
@@ -99,8 +110,9 @@ class TvDetails extends React.Component {
 TvDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
     }),
+    path: PropTypes.string,
   }).isRequired,
 
 };

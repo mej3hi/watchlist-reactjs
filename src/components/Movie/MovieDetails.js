@@ -61,11 +61,11 @@ class MovieDetails extends React.Component {
     };
 
     return (
-      <Row style={backgroundImage} className="tvShowDetails" >
+      <Row style={backgroundImage} className="details" >
         <Col xs={12} md={12}>
           <Row >
             <Col xs={12} md={4}>
-              <img src={`https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`} alt="poster" />
+              <img src={`https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`} alt="Poster" />
             </Col>
             <Col xs={12} md={8}>
               <h1>{movieDetails.title}</h1>
@@ -84,7 +84,7 @@ class MovieDetails extends React.Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
     }),
   }).isRequired,
 

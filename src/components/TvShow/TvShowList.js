@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Row, Col } from 'react-bootstrap';
 
 import TvShow from './TvShow';
-
 
 const TvShowList = (props) => {
   const tvColOne = [];
@@ -33,7 +31,7 @@ const TvShowList = (props) => {
     }
   };
 
-  splitListInTwo(props.results);
+  splitListInTwo(props.data);
 
   return (
     <div>
@@ -51,8 +49,15 @@ const TvShowList = (props) => {
 };
 
 TvShowList.propTypes = {
-  results: PropTypes.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    air_data: PropTypes.string,
+    id: PropTypes.number,
+    poster_path: PropTypes.string,
+    name: PropTypes.string,
+    vote_average: PropTypes.number,
+    first_air_date: PropTypes.string,
+    overview: PropTypes.string,
+  })).isRequired,
 };
-
 
 export default TvShowList;

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Row, Col } from 'react-bootstrap';
 
 import Movie from './Movie';
 
 
-const TvShowList = (props) => {
+const MovieList = (props) => {
   const tvColOne = [];
   const tvColTwo = [];
 
@@ -33,7 +32,7 @@ const TvShowList = (props) => {
     }
   };
 
-  splitListInTwo(props.results);
+  splitListInTwo(props.data);
 
   return (
     <div>
@@ -50,9 +49,16 @@ const TvShowList = (props) => {
   );
 };
 
-TvShowList.propTypes = {
-  results: PropTypes.isRequired,
+MovieList.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    vote_average: PropTypes.number,
+    release_date: PropTypes.string,
+    overview: PropTypes.string,
+  })).isRequired,
 };
 
 
-export default TvShowList;
+export default MovieList;
